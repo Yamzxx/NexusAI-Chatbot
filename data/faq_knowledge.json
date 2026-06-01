@@ -1,0 +1,44 @@
+{
+  "faq": [
+    {
+      "question": "What is the difference between list and tuple in Python?",
+      "answer": "**Lists vs Tuples in Python:**\n\n| Feature | List `[]` | Tuple `()` |\n|---------|-----------|------------|\n| Mutability | Mutable | Immutable |\n| Performance | Slower | Faster |\n| Memory | More | Less |\n| Use case | Dynamic data | Fixed data |\n\n```python\nmy_list = [1, 2, 3]   # Can modify\nmy_list.append(4)     # Works!\n\nmy_tuple = (1, 2, 3)  # Cannot modify\nmy_tuple[0] = 99      # TypeError!\n\n# Tuples as dict keys (hashable)\ncoordinates = {(0, 0): 'origin', (1, 2): 'point'}\n```\n\n**Rule:** Default to tuples for read-only data — they signal intent and are faster.",
+      "tags": ["python", "list", "tuple", "data structures"]
+    },
+    {
+      "question": "What is the GIL in Python?",
+      "answer": "**Python GIL (Global Interpreter Lock):**\n\nThe GIL is a mutex that protects CPython's memory management — only one thread can execute Python bytecode at a time, even on multi-core CPUs.\n\n**Impact:**\n- CPU-bound threads: NO speedup from threading (GIL bottleneck)\n- I/O-bound threads: Fine! GIL released during I/O\n\n**Solutions:**\n```python\n# For CPU-bound: use multiprocessing\nfrom multiprocessing import Pool\nwith Pool(4) as p:\n    results = p.map(cpu_heavy_fn, data)\n\n# For I/O-bound: threading or asyncio work fine\nimport asyncio\nawait asyncio.gather(*[fetch(url) for url in urls])\n```\n\n**Note:** The GIL is being removed in Python 3.13+ (PEP 703 — free-threaded Python)!",
+      "tags": ["python", "gil", "threading", "concurrency"]
+    },
+    {
+      "question": "How does Python memory management work?",
+      "answer": "**Python Memory Management:**\n\n1. **Reference Counting** — every object has a count of references pointing to it. When count hits 0, memory is freed immediately.\n\n2. **Garbage Collector** — handles circular references that reference counting can't catch.\n\n3. **Memory Pools** — Python pre-allocates small object pools for efficiency.\n\n```python\nimport sys\nimport gc\n\nx = [1, 2, 3]\nprint(sys.getrefcount(x))  # reference count\n\n# Manual GC control (rarely needed)\ngc.collect()  # force garbage collection\ngc.disable()  # disable (for performance-critical code)\n```\n\n**Tip:** Avoid circular references, use `del` for large objects, use `__slots__` to reduce object memory footprint.",
+      "tags": ["python", "memory", "gc", "internals"]
+    },
+    {
+      "question": "What is the difference between == and is in Python?",
+      "answer": "**`==` vs `is` in Python:**\n\n- `==` compares **value** (calls `__eq__`)\n- `is` compares **identity** (same object in memory)\n\n```python\na = [1, 2, 3]\nb = [1, 2, 3]\nc = a\n\nprint(a == b)  # True — same value\nprint(a is b)  # False — different objects\nprint(a is c)  # True — same object!\n\n# Gotcha: Python interns small ints (-5 to 256)\nx = 256; y = 256\nprint(x is y)   # True (interned)\nx = 257; y = 257\nprint(x is y)   # False (not interned)\n\n# Rule: Use == for value comparison\n# Use 'is' ONLY for None, True, False\nif value is None: ...\nif flag is True: ...\n```",
+      "tags": ["python", "equality", "identity", "operators"]
+    },
+    {
+      "question": "What is recursion and when should I avoid it?",
+      "answer": "**Recursion** — a function that calls itself to solve subproblems.\n\n```python\ndef factorial(n: int) -> int:\n    if n <= 1:  # Base case — MUST have!\n        return 1\n    return n * factorial(n - 1)  # Recursive case\n```\n\n**Python recursion limit:** 1000 by default (can increase with `sys.setrecursionlimit`)\n\n**When to avoid:**\n- Deep recursion → `RecursionError`\n- Performance-sensitive code (function call overhead)\n- When iteration is equally readable\n\n**Iterative alternative (always preferred for production):**\n```python\ndef factorial_iter(n: int) -> int:\n    result = 1\n    for i in range(2, n + 1):\n        result *= i\n    return result\n```\n\n**Use recursion for:** tree traversal, divide & conquer, backtracking, when recursive structure is natural.",
+      "tags": ["dsa", "recursion", "algorithms"]
+    },
+    {
+      "question": "What is git rebase and when to use it?",
+      "answer": "**Git Rebase** replays your commits on top of another branch, creating a linear history.\n\n```bash\n# Scenario: feature branch is behind main\ngit checkout feature/my-feature\ngit rebase main  # replay feature commits on top of main\n\n# Interactive rebase — clean up commits before PR\ngit rebase -i HEAD~3  # edit last 3 commits\n# Options: pick, squash, fixup, reword, drop\n```\n\n**Rebase vs Merge:**\n```\nMerge:  A---B---C---M (merge commit)\n              \\   /\n               D---E\n\nRebase: A---B---C---D'---E' (linear, clean)\n```\n\n**Golden rule:** Never rebase commits that have been pushed to a shared branch — it rewrites history and breaks others' work.\n\n**When to rebase:** Cleaning up local commits before PR, updating feature branch with main's latest changes.",
+      "tags": ["git", "rebase", "merge", "workflow"]
+    },
+    {
+      "question": "How do I optimize Python code for performance?",
+      "answer": "**Python Performance Optimization:**\n\n**1. Profile first — don't guess!**\n```python\nimport cProfile\ncProfile.run('my_function()', sort='cumulative')\n```\n\n**2. Use built-ins (C-implemented)**\n```python\n# Use map/filter over loops for simple transforms\nresult = list(map(str, numbers))  # faster than comprehension\ntotal = sum(items)  # faster than for loop\n```\n\n**3. Choose right data structures**\n```python\n# Set for membership testing: O(1) vs O(n) for list\nif item in set_data:   # O(1)\nif item in list_data:  # O(n)\n```\n\n**4. Use numpy for numeric computation**\n```python\nimport numpy as np\narr = np.array(data)  # 10-100x faster than pure Python loops\n```\n\n**5. Caching**\n```python\nfrom functools import lru_cache\n@lru_cache(maxsize=128)\ndef expensive_fn(n): ...\n```\n\n**6. Generator expressions** over list comprehensions for large data",
+      "tags": ["python", "performance", "optimization"]
+    },
+    {
+      "question": "What are Python context managers and how do I create one?",
+      "answer": "**Context Managers** manage resources automatically — the `with` statement calls `__enter__` and `__exit__`.\n\n```python\n# Using existing context manager\nwith open('file.txt', 'r') as f:\n    content = f.read()\n# File automatically closed even if exception occurs!\n\n# Creating with class\nclass Timer:\n    def __enter__(self):\n        import time\n        self.start = time.time()\n        return self\n    \n    def __exit__(self, exc_type, exc_val, exc_tb):\n        self.elapsed = time.time() - self.start\n        print(f'Elapsed: {self.elapsed:.3f}s')\n        return False  # don't suppress exceptions\n\n# Creating with contextlib (simpler)\nfrom contextlib import contextmanager\n\n@contextmanager\ndef timer():\n    import time\n    start = time.time()\n    try:\n        yield\n    finally:\n        print(f'Elapsed: {time.time() - start:.3f}s')\n\nwith timer():\n    expensive_operation()\n```",
+      "tags": ["python", "context manager", "with statement"]
+    }
+  ]
+}

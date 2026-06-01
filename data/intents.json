@@ -1,0 +1,878 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hello",
+        "hi",
+        "hey",
+        "good morning",
+        "good evening",
+        "good afternoon",
+        "what's up",
+        "howdy",
+        "greetings",
+        "sup",
+        "yo",
+        "hi there",
+        "hello there",
+        "hey there"
+      ],
+      "responses": [
+        "Hey there! \ud83d\udc4b I'm NexusAI \u2014 your intelligent tech assistant. Ask me anything about Python, DSA, Git, Docker, cloud, or career tips!",
+        "Hello! Great to see you. I'm ready to help with coding, interviews, debugging, or anything tech-related. What's on your mind?",
+        "Hi! I'm NexusAI. Whether it's Python, data structures, DevOps, or career advice \u2014 I've got you covered. Fire away!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "bye",
+        "goodbye",
+        "see you",
+        "see ya",
+        "later",
+        "take care",
+        "ciao",
+        "farewell",
+        "gotta go",
+        "quit",
+        "exit"
+      ],
+      "responses": [
+        "Goodbye! Keep building great things. \ud83d\ude80",
+        "See you later! Don't forget to commit your code before you leave. \ud83d\ude04",
+        "Farewell! Remember: every expert was once a beginner. Keep going! \ud83d\udcaa"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "thanks",
+        "thank you",
+        "thank you so much",
+        "cheers",
+        "appreciate it",
+        "that was helpful",
+        "perfect",
+        "awesome thanks",
+        "great thanks"
+      ],
+      "responses": [
+        "You're welcome! Happy to help. Anything else you'd like to explore?",
+        "Glad I could help! Feel free to ask more questions. \ud83d\ude0a",
+        "Anytime! That's what I'm here for. What's next on your list?"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "how_are_you",
+      "patterns": [
+        "how are you",
+        "how are you doing",
+        "how's it going",
+        "are you okay",
+        "what's going on",
+        "how do you feel"
+      ],
+      "responses": [
+        "I'm running at full capacity and feeling great! \ud83e\udd16 Ready to tackle any tech question you throw at me.",
+        "Doing fantastic! My neural pathways are firing on all cylinders. How can I assist you today?",
+        "All systems operational! I'm here and ready to help. What can I do for you?"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "what_is_python",
+      "patterns": [
+        "what is python",
+        "tell me about python",
+        "explain python",
+        "python programming",
+        "what is python used for",
+        "python language",
+        "why use python"
+      ],
+      "responses": [
+        "\ud83d\udc0d **Python** is a high-level, interpreted programming language known for its clean syntax and readability. Created by Guido van Rossum in 1991, Python emphasizes code readability and simplicity.\n\n**Key uses:**\n- Web development (Django, Flask, FastAPI)\n- Data science & ML (Pandas, NumPy, TensorFlow)\n- Automation & scripting\n- APIs and microservices\n- Scientific computing\n\nPython's philosophy: *'There should be one obvious way to do it.'*",
+        "Python is a versatile, beginner-friendly language that's also powerful enough for enterprise applications. It's dynamically typed, supports OOP, functional, and procedural paradigms. The vast ecosystem (PyPI has 400k+ packages) makes it the #1 language for AI/ML today."
+      ],
+      "context_set": "python"
+    },
+    {
+      "tag": "python_creator",
+      "patterns": [
+        "who created python",
+        "who invented python",
+        "who made python",
+        "python creator",
+        "python inventor",
+        "who wrote python"
+      ],
+      "responses": [
+        "\ud83e\uddd1\u200d\ud83d\udcbb Python was created by **Guido van Rossum**, a Dutch programmer, and first released in **1991**. He served as Python's 'Benevolent Dictator for Life' (BDFL) until 2018 when he stepped down. The language was named after *Monty Python's Flying Circus* \u2014 not the snake!"
+      ],
+      "context_set": "python"
+    },
+    {
+      "tag": "python_oop",
+      "patterns": [
+        "python oop",
+        "object oriented python",
+        "classes in python",
+        "python class",
+        "inheritance python",
+        "python objects",
+        "how to create class in python"
+      ],
+      "responses": [
+        "\ud83c\udfd7\ufe0f **OOP in Python** \u2014 here's a quick rundown:\n\n```python\nclass Animal:\n    def __init__(self, name):\n        self.name = name\n    \n    def speak(self):\n        return f'{self.name} makes a sound'\n\nclass Dog(Animal):\n    def speak(self):\n        return f'{self.name} says Woof!'\n\ndog = Dog('Rex')\nprint(dog.speak())  # Rex says Woof!\n```\n\n**Key OOP concepts:** Encapsulation, Inheritance, Polymorphism, Abstraction."
+      ],
+      "context_set": "python"
+    },
+    {
+      "tag": "python_decorators",
+      "patterns": [
+        "python decorators",
+        "what are decorators",
+        "how to use decorators",
+        "decorator pattern python",
+        "@decorator",
+        "python wrapper function"
+      ],
+      "responses": [
+        "\ud83c\udf80 **Python Decorators** are functions that modify the behavior of another function \u2014 they're syntactic sugar for higher-order functions.\n\n```python\nimport functools\nimport time\n\ndef timer(func):\n    @functools.wraps(func)\n    def wrapper(*args, **kwargs):\n        start = time.time()\n        result = func(*args, **kwargs)\n        end = time.time()\n        print(f'{func.__name__} took {end-start:.4f}s')\n        return result\n    return wrapper\n\n@timer\ndef slow_function():\n    time.sleep(1)\n    return 'done'\n```\n\nCommon decorators: `@property`, `@staticmethod`, `@classmethod`, `@functools.lru_cache`"
+      ],
+      "context_set": "python"
+    },
+    {
+      "tag": "python_generators",
+      "patterns": [
+        "python generators",
+        "what is a generator",
+        "yield in python",
+        "generator function",
+        "lazy evaluation python",
+        "iterator vs generator"
+      ],
+      "responses": [
+        "\u26a1 **Python Generators** are memory-efficient iterators that use `yield` to produce values lazily:\n\n```python\ndef fibonacci():\n    a, b = 0, 1\n    while True:\n        yield a\n        a, b = b, a + b\n\nfib = fibonacci()\nprint([next(fib) for _ in range(8)])\n# [0, 1, 1, 2, 3, 5, 8, 13]\n\n# Generator expression\nsquares = (x**2 for x in range(1000000))\n# Only computes values as needed \u2014 saves memory!\n```\n\n**Use generators when:** working with large datasets, infinite sequences, or streaming data."
+      ],
+      "context_set": "python"
+    },
+    {
+      "tag": "python_list_comprehension",
+      "patterns": [
+        "list comprehension",
+        "python list comprehension",
+        "list comprehension python",
+        "dict comprehension",
+        "set comprehension"
+      ],
+      "responses": [
+        "\ud83d\udccb **List Comprehensions** \u2014 Pythonic, fast, and concise:\n\n```python\n# Basic\nsquares = [x**2 for x in range(10)]\n\n# With condition\nevens = [x for x in range(20) if x % 2 == 0]\n\n# Nested\nmatrix = [[i*j for j in range(1,4)] for i in range(1,4)]\n\n# Dict comprehension\nword_lengths = {word: len(word) for word in ['python', 'java', 'rust']}\n\n# Set comprehension\nunique_chars = {char for char in 'hello world'}\n```\n\nList comprehensions are typically 35% faster than equivalent for-loops!"
+      ],
+      "context_set": "python"
+    },
+    {
+      "tag": "arrays_intro",
+      "patterns": [
+        "what is an array",
+        "array data structure",
+        "explain array",
+        "array vs list",
+        "arrays in programming"
+      ],
+      "responses": [
+        "\ud83d\udcca **Arrays** are the most fundamental data structure \u2014 a contiguous block of memory storing elements of the same type.\n\n**Key characteristics:**\n- O(1) random access by index\n- O(n) insertion/deletion (middle)\n- O(1) insertion at end (amortized, dynamic arrays)\n- Fixed size (static) or dynamic\n\n**In Python:**\n```python\nimport array\narr = array.array('i', [1, 2, 3, 4])  # typed array\n# Or use lists (dynamic arrays)\nmy_list = [1, 2, 3, 4]\n```\n\n**Use arrays when:** you need fast indexed access and know the data type in advance."
+      ],
+      "context_set": "dsa"
+    },
+    {
+      "tag": "linked_list",
+      "patterns": [
+        "linked list",
+        "what is linked list",
+        "singly linked list",
+        "doubly linked list",
+        "linked list implementation",
+        "linked list python"
+      ],
+      "responses": [
+        "\ud83d\udd17 **Linked List** \u2014 nodes connected by pointers:\n\n```python\nclass Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n    \n    def append(self, data):\n        node = Node(data)\n        if not self.head:\n            self.head = node\n            return\n        curr = self.head\n        while curr.next:\n            curr = curr.next\n        curr.next = node\n```\n\n**Complexity:**\n- Access: O(n) | Search: O(n)\n- Insert at head: O(1) | Insert at tail: O(n)\n- Delete: O(1) if pointer known\n\n**Use when:** frequent insertions/deletions, unknown size at compile time."
+      ],
+      "context_set": "dsa"
+    },
+    {
+      "tag": "binary_search",
+      "patterns": [
+        "binary search",
+        "how does binary search work",
+        "binary search implementation",
+        "binary search algorithm",
+        "search sorted array"
+      ],
+      "responses": [
+        "\ud83d\udd0d **Binary Search** \u2014 O(log n) search on sorted arrays:\n\n```python\ndef binary_search(arr, target):\n    left, right = 0, len(arr) - 1\n    \n    while left <= right:\n        mid = left + (right - left) // 2  # Avoids overflow\n        \n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    \n    return -1  # Not found\n\n# Example\narr = [1, 3, 5, 7, 9, 11, 13]\nprint(binary_search(arr, 7))  # Output: 3\n```\n\n**Key insight:** Each iteration halves the search space. 1 billion elements \u2192 found in ~30 steps!"
+      ],
+      "context_set": "dsa"
+    },
+    {
+      "tag": "sorting_algorithms",
+      "patterns": [
+        "sorting algorithms",
+        "types of sorting",
+        "quicksort",
+        "mergesort",
+        "bubble sort",
+        "which sorting algorithm to use",
+        "sort algorithm comparison"
+      ],
+      "responses": [
+        "\ud83d\udcc8 **Sorting Algorithm Comparison:**\n\n| Algorithm | Best | Avg | Worst | Space |\n|-----------|------|-----|-------|-------|\n| QuickSort | O(n log n) | O(n log n) | O(n\u00b2) | O(log n) |\n| MergeSort | O(n log n) | O(n log n) | O(n log n) | O(n) |\n| HeapSort | O(n log n) | O(n log n) | O(n log n) | O(1) |\n| TimSort | O(n) | O(n log n) | O(n log n) | O(n) |\n| BubbleSort | O(n) | O(n\u00b2) | O(n\u00b2) | O(1) |\n\n**Python uses TimSort** (hybrid of MergeSort + InsertionSort).\n\n**Rule of thumb:** Use `sorted()` or `.sort()` in Python \u2014 they're highly optimized C implementations!"
+      ],
+      "context_set": "dsa"
+    },
+    {
+      "tag": "big_o_notation",
+      "patterns": [
+        "big o notation",
+        "time complexity",
+        "space complexity",
+        "o(n)",
+        "o(log n)",
+        "what is big o",
+        "algorithm complexity"
+      ],
+      "responses": [
+        "\ud83d\udcca **Big-O Notation** measures algorithm efficiency as input grows:\n\n**Common complexities (best \u2192 worst):**\n- **O(1)** \u2014 Constant: Hash table lookup\n- **O(log n)** \u2014 Logarithmic: Binary search\n- **O(n)** \u2014 Linear: Simple loop\n- **O(n log n)** \u2014 Linearithmic: Merge sort\n- **O(n\u00b2)** \u2014 Quadratic: Nested loops\n- **O(2\u207f)** \u2014 Exponential: Recursive Fibonacci\n- **O(n!)** \u2014 Factorial: Permutations\n\n**Remember:** Drop constants and non-dominant terms:\n- O(2n) \u2192 O(n)\n- O(n\u00b2 + n) \u2192 O(n\u00b2)\n\nAlways optimize the *bottleneck* in your algorithm first!"
+      ],
+      "context_set": "dsa"
+    },
+    {
+      "tag": "stack_queue",
+      "patterns": [
+        "stack and queue",
+        "what is a stack",
+        "what is a queue",
+        "stack vs queue",
+        "lifo fifo",
+        "stack implementation",
+        "queue implementation"
+      ],
+      "responses": [
+        "\ud83d\udcda **Stack (LIFO) vs Queue (FIFO):**\n\n```python\n# Stack \u2014 Last In, First Out\nfrom collections import deque\nstack = deque()\nstack.append('a')    # push\nstack.append('b')\nstack.pop()          # 'b' \u2192 LIFO\n\n# Queue \u2014 First In, First Out\nqueue = deque()\nqueue.append('a')    # enqueue\nqueue.append('b')\nqueue.popleft()      # 'a' \u2192 FIFO\n\n# Priority Queue\nimport heapq\npq = []\nheapq.heappush(pq, (1, 'low priority'))\nheapq.heappush(pq, (0, 'high priority'))\nprint(heapq.heappop(pq))  # (0, 'high priority')\n```\n\n**Use Stack for:** undo/redo, call stack, expression parsing\n**Use Queue for:** BFS, task scheduling, print spooling"
+      ],
+      "context_set": "dsa"
+    },
+    {
+      "tag": "trees_intro",
+      "patterns": [
+        "binary tree",
+        "what is a tree",
+        "tree data structure",
+        "bst",
+        "binary search tree",
+        "tree traversal"
+      ],
+      "responses": [
+        "\ud83c\udf33 **Binary Trees** \u2014 hierarchical data with at most 2 children per node:\n\n```python\nclass TreeNode:\n    def __init__(self, val):\n        self.val = val\n        self.left = self.right = None\n\n# Tree traversals\ndef inorder(root):   # Left \u2192 Root \u2192 Right (BST: sorted output)\n    if root:\n        inorder(root.left)\n        print(root.val)\n        inorder(root.right)\n\ndef preorder(root):  # Root \u2192 Left \u2192 Right (copy tree)\n    if root:\n        print(root.val)\n        preorder(root.left)\n        preorder(root.right)\n\ndef levelorder(root):  # BFS\n    from collections import deque\n    q = deque([root])\n    while q:\n        node = q.popleft()\n        print(node.val)\n        if node.left: q.append(node.left)\n        if node.right: q.append(node.right)\n```\n\n**BST property:** left < root < right"
+      ],
+      "context_set": "dsa"
+    },
+    {
+      "tag": "hash_tables",
+      "patterns": [
+        "hash table",
+        "hash map",
+        "dictionary python",
+        "hash function",
+        "collision resolution",
+        "hashing"
+      ],
+      "responses": [
+        "\ud83d\uddc2\ufe0f **Hash Tables** \u2014 O(1) average-case lookup, insert, delete:\n\n```python\n# Python dict is a highly optimized hash table\ncache = {}\ncache['key'] = 'value'  # O(1)\nvalue = cache.get('key', 'default')  # O(1) with fallback\n\n# Counter \u2014 frequency hash map\nfrom collections import Counter\nwords = ['python', 'java', 'python', 'rust']\nfreq = Counter(words)\nprint(freq.most_common(2))  # [('python', 2), ('java', 1)]\n\n# defaultdict \u2014 auto-initializes missing keys\nfrom collections import defaultdict\ngraph = defaultdict(list)\ngraph['A'].append('B')  # No KeyError!\n```\n\n**Collision handling:** chaining (Python) vs open addressing\n**Load factor:** Python resizes at 2/3 capacity \u2192 average O(1) maintained"
+      ],
+      "context_set": "dsa"
+    },
+    {
+      "tag": "dynamic_programming",
+      "patterns": [
+        "dynamic programming",
+        "dp",
+        "memoization",
+        "tabulation",
+        "dp problems",
+        "fibonacci dp",
+        "knapsack problem"
+      ],
+      "responses": [
+        "\u26a1 **Dynamic Programming** \u2014 break problems into overlapping subproblems:\n\n**Two approaches:**\n1. **Memoization** (top-down): cache recursive results\n2. **Tabulation** (bottom-up): fill table iteratively\n\n```python\n# Fibonacci \u2014 Memoization\nfrom functools import lru_cache\n\n@lru_cache(maxsize=None)\ndef fib(n):\n    if n <= 1: return n\n    return fib(n-1) + fib(n-2)\n\n# Fibonacci \u2014 Tabulation O(n) time, O(1) space\ndef fib_dp(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n\n# Longest Common Subsequence\ndef lcs(s1, s2):\n    m, n = len(s1), len(s2)\n    dp = [[0]*(n+1) for _ in range(m+1)]\n    for i in range(1, m+1):\n        for j in range(1, n+1):\n            if s1[i-1] == s2[j-1]:\n                dp[i][j] = dp[i-1][j-1] + 1\n            else:\n                dp[i][j] = max(dp[i-1][j], dp[i][j-1])\n    return dp[m][n]\n```"
+      ],
+      "context_set": "dsa"
+    },
+    {
+      "tag": "git_intro",
+      "patterns": [
+        "what is git",
+        "explain git",
+        "git basics",
+        "git version control",
+        "git tutorial",
+        "learn git"
+      ],
+      "responses": [
+        "\ud83c\udf3f **Git** is a distributed version control system created by Linus Torvalds in 2005. It tracks changes in source code, enabling collaboration and full history preservation.\n\n**Core concepts:**\n- **Repository** \u2014 your project's database\n- **Commit** \u2014 a snapshot of changes\n- **Branch** \u2014 parallel line of development\n- **Merge/Rebase** \u2014 combining branches\n- **Remote** \u2014 server-hosted repository (GitHub, GitLab)\n\n**The 3 areas:**\n```\nWorking Directory \u2192 (git add) \u2192 Staging Area \u2192 (git commit) \u2192 Repository\n```\n\nEvery commit is immutable and cryptographically hashed \u2014 making Git extremely reliable."
+      ],
+      "context_set": "git"
+    },
+    {
+      "tag": "git_commands",
+      "patterns": [
+        "git commands",
+        "common git commands",
+        "git cheat sheet",
+        "git add commit push",
+        "basic git commands",
+        "git workflow"
+      ],
+      "responses": [
+        "\ud83d\udccb **Essential Git Commands:**\n\n```bash\n# Setup\ngit config --global user.name 'Your Name'\ngit config --global user.email 'you@email.com'\n\n# Start\ngit init                    # new repo\ngit clone <url>             # clone existing\n\n# Daily workflow\ngit status                  # see changes\ngit add .                   # stage all\ngit add <file>              # stage specific\ngit commit -m 'message'     # commit\ngit push origin main        # push\ngit pull                    # fetch + merge\n\n# Branching\ngit branch feature/xyz      # create branch\ngit checkout feature/xyz    # switch\ngit checkout -b feature/xyz # create + switch\ngit merge feature/xyz       # merge into current\n\n# Undo\ngit restore <file>          # discard changes\ngit reset HEAD~1            # undo last commit (keep changes)\ngit revert <hash>           # safe undo (new commit)\n```"
+      ],
+      "context_set": "git"
+    },
+    {
+      "tag": "git_branching",
+      "patterns": [
+        "git branching",
+        "git branch strategy",
+        "gitflow",
+        "feature branch",
+        "git merge vs rebase",
+        "what is rebasing"
+      ],
+      "responses": [
+        "\ud83c\udf3f **Git Branching Strategies:**\n\n**GitFlow (enterprise):**\n```\nmain \u2190 production-ready\ndevelop \u2190 integration branch\nfeature/* \u2190 new features\nrelease/* \u2190 pre-release\nhotfix/* \u2190 urgent fixes\n```\n\n**Merge vs Rebase:**\n```bash\n# Merge \u2014 preserves history, creates merge commit\ngit merge feature/xyz\n\n# Rebase \u2014 linear history, rewrites commits\ngit rebase main  # run from feature branch\n\n# Golden rule: Never rebase shared/public branches!\n```\n\n**Best practices:**\n- Branch names: `feature/`, `bugfix/`, `hotfix/`, `chore/`\n- Short-lived branches (< 2 days ideal)\n- Always pull before pushing\n- Write meaningful commit messages (Conventional Commits spec)"
+      ],
+      "context_set": "git"
+    },
+    {
+      "tag": "docker_intro",
+      "patterns": [
+        "what is docker",
+        "explain docker",
+        "docker tutorial",
+        "docker basics",
+        "containers explained",
+        "docker vs vm"
+      ],
+      "responses": [
+        "\ud83d\udc33 **Docker** is a platform for containerizing applications \u2014 packaging code with all its dependencies into portable, isolated containers.\n\n**Docker vs VM:**\n```\nVM: App \u2192 Guest OS \u2192 Hypervisor \u2192 Host OS \u2192 Hardware\nDocker: App \u2192 Docker Engine \u2192 Host OS \u2192 Hardware\n```\nContainers share the host OS kernel \u2192 much lighter and faster than VMs!\n\n**Key concepts:**\n- **Image** \u2014 blueprint/template (read-only)\n- **Container** \u2014 running instance of an image\n- **Dockerfile** \u2014 recipe to build an image\n- **Registry** \u2014 storage for images (Docker Hub)\n- **Volume** \u2014 persistent data storage\n- **Network** \u2014 container communication"
+      ],
+      "context_set": "docker"
+    },
+    {
+      "tag": "docker_commands",
+      "patterns": [
+        "docker commands",
+        "docker cheat sheet",
+        "docker run",
+        "docker build",
+        "dockerfile",
+        "docker compose",
+        "docker ps"
+      ],
+      "responses": [
+        "\ud83d\udccb **Essential Docker Commands:**\n\n```bash\n# Images\ndocker pull nginx           # download image\ndocker images               # list images\ndocker build -t myapp:1.0 . # build from Dockerfile\ndocker rmi myapp:1.0        # remove image\n\n# Containers\ndocker run -d -p 8080:80 nginx  # run detached\ndocker run -it ubuntu bash      # interactive\ndocker ps                       # running containers\ndocker ps -a                    # all containers\ndocker stop <id>                # stop\ndocker rm <id>                  # remove\n\n# Dockerfile example:\nFROM python:3.11-slim\nWORKDIR /app\nCOPY requirements.txt .\nRUN pip install -r requirements.txt\nCOPY . .\nEXPOSE 8000\nCMD ['uvicorn', 'main:app', '--host', '0.0.0.0']\n\n# Docker Compose\ndocker compose up -d      # start services\ndocker compose down       # stop + remove\ndocker compose logs -f    # follow logs\n```"
+      ],
+      "context_set": "docker"
+    },
+    {
+      "tag": "cloud_computing",
+      "patterns": [
+        "what is cloud computing",
+        "cloud computing basics",
+        "aws azure gcp",
+        "types of cloud",
+        "iaas paas saas",
+        "cloud services"
+      ],
+      "responses": [
+        "\u2601\ufe0f **Cloud Computing** \u2014 on-demand IT resources over the internet:\n\n**Service Models:**\n- **IaaS** (Infrastructure) \u2014 VMs, storage, networking (AWS EC2)\n- **PaaS** (Platform) \u2014 managed runtime, DB, middleware (Heroku, Google App Engine)\n- **SaaS** (Software) \u2014 ready-to-use apps (Gmail, Salesforce)\n\n**Deployment Models:**\n- **Public** \u2014 shared infra (AWS, Azure, GCP)\n- **Private** \u2014 dedicated infra on-premises\n- **Hybrid** \u2014 mix of both\n\n**Big 3 Providers:**\n| Feature | AWS | Azure | GCP |\n|---------|-----|-------|-----|\n| Market Share | ~33% | ~22% | ~11% |\n| Compute | EC2 | VMs | Compute Engine |\n| Storage | S3 | Blob | Cloud Storage |\n| Functions | Lambda | Functions | Cloud Functions |"
+      ],
+      "context_set": "cloud"
+    },
+    {
+      "tag": "aws_services",
+      "patterns": [
+        "aws services",
+        "amazon web services",
+        "what is ec2",
+        "what is s3",
+        "aws lambda",
+        "aws tutorial",
+        "learn aws"
+      ],
+      "responses": [
+        "\u2601\ufe0f **Core AWS Services:**\n\n**Compute:**\n- **EC2** \u2014 virtual machines (choose OS, CPU, RAM)\n- **Lambda** \u2014 serverless functions (pay per invocation)\n- **ECS/EKS** \u2014 container orchestration\n\n**Storage:**\n- **S3** \u2014 object storage (unlimited, 99.999999999% durability)\n- **EBS** \u2014 block storage attached to EC2\n- **RDS** \u2014 managed relational DB (MySQL, PostgreSQL, etc.)\n- **DynamoDB** \u2014 serverless NoSQL\n\n**Networking:**\n- **VPC** \u2014 isolated virtual network\n- **CloudFront** \u2014 CDN\n- **Route 53** \u2014 DNS service\n\n**AI/ML:**\n- **SageMaker** \u2014 ML platform\n- **Rekognition** \u2014 image analysis\n- **Bedrock** \u2014 foundation models\n\n**Pro tip:** For interviews, know EC2, S3, Lambda, RDS, VPC inside out!"
+      ],
+      "context_set": "cloud"
+    },
+    {
+      "tag": "debugging_tips",
+      "patterns": [
+        "how to debug",
+        "debugging tips",
+        "debugging techniques",
+        "how to fix bugs",
+        "debugging strategies",
+        "print debugging",
+        "using debugger"
+      ],
+      "responses": [
+        "\ud83d\udc1b **Systematic Debugging Approach:**\n\n**1. Reproduce the bug**\n- Find exact steps to trigger it\n- Check if it's deterministic or flaky\n\n**2. Isolate the problem**\n```python\n# Use binary search in code \u2014 comment out half\n# Use assert statements\nassert len(data) > 0, 'Data is empty!'\n\n# Use Python debugger\nimport pdb; pdb.set_trace()  # or breakpoint()\n```\n\n**3. Understand before fixing**\n- Read error traceback bottom-up\n- Google the exact error message\n\n**4. Logging over print**\n```python\nimport logging\nlogging.basicConfig(level=logging.DEBUG)\nlogging.debug(f'Variable x = {x}')\n```\n\n**5. Tools:**\n- Python: `pdb`, `ipdb`, VS Code debugger\n- Profiling: `cProfile`, `line_profiler`\n- Memory: `memory_profiler`, `tracemalloc`\n\n**Rubber duck debugging** \u2014 explain your code out loud. Often you'll find the bug yourself!"
+      ],
+      "context_set": "debugging"
+    },
+    {
+      "tag": "common_errors",
+      "patterns": [
+        "common python errors",
+        "python error types",
+        "typeerror",
+        "valueerror",
+        "indexerror",
+        "keyerror",
+        "attributeerror",
+        "exception handling"
+      ],
+      "responses": [
+        "\u26a0\ufe0f **Common Python Errors & Fixes:**\n\n```python\n# TypeError \u2014 wrong type\nlen(42)  # int has no len()\n# Fix: ensure correct type, use isinstance()\n\n# ValueError \u2014 right type, wrong value\nint('abc')  # can't convert\n# Fix: validate input before conversion\n\n# KeyError \u2014 dict key missing\nd = {}; d['key']  \n# Fix: use d.get('key', default)\n\n# IndexError \u2014 list index out of range\narr = [1,2,3]; arr[5]\n# Fix: check len() before indexing\n\n# AttributeError \u2014 object has no attribute\nnone_val = None; none_val.upper()\n# Fix: check for None before calling methods\n\n# Exception Handling Best Practice:\ntry:\n    risky_operation()\nexcept (TypeError, ValueError) as e:\n    logger.error(f'Input error: {e}')\n    raise  # re-raise if can't recover\nexcept Exception as e:\n    logger.critical(f'Unexpected: {e}')\nfinally:\n    cleanup()  # always runs\n```"
+      ],
+      "context_set": "debugging"
+    },
+    {
+      "tag": "interview_prep",
+      "patterns": [
+        "interview preparation",
+        "coding interview tips",
+        "how to prepare for interview",
+        "technical interview",
+        "faang interview",
+        "interview advice",
+        "leetcode tips"
+      ],
+      "responses": [
+        "\ud83c\udfaf **Technical Interview Preparation Roadmap:**\n\n**Phase 1: Fundamentals (2-4 weeks)**\n- Arrays, Strings, Hash Maps\n- Two Pointers, Sliding Window\n- Binary Search\n\n**Phase 2: Core DSA (4-6 weeks)**\n- Linked Lists, Stacks, Queues\n- Trees, BST, Heaps\n- Graphs (BFS/DFS)\n- Dynamic Programming basics\n\n**Phase 3: Practice (ongoing)**\n- LeetCode: Easy \u2192 Medium \u2192 Hard\n- Target: 150-200 problems minimum\n- Focus on patterns, not memorization\n\n**Interview Day Tips:**\n1. Clarify requirements first (5 min)\n2. Think out loud \u2014 explain your approach\n3. Start with brute force, then optimize\n4. Analyze time/space complexity\n5. Test with edge cases (empty, single element, duplicates)\n\n**Resources:** NeetCode 150, Blind 75, AlgoExpert"
+      ],
+      "context_set": "interview"
+    },
+    {
+      "tag": "system_design",
+      "patterns": [
+        "system design",
+        "how to design a system",
+        "scalable architecture",
+        "design url shortener",
+        "system design interview",
+        "microservices"
+      ],
+      "responses": [
+        "\ud83c\udfd7\ufe0f **System Design Framework:**\n\n**Step 1: Clarify Requirements**\n- Functional: what must it do?\n- Non-functional: scale, latency, availability?\n- Estimate scale: users, QPS, storage\n\n**Step 2: High-Level Design**\n```\nClient \u2192 Load Balancer \u2192 App Servers \u2192 Cache (Redis)\n                                    \u2193\n                             Database (Primary + Replicas)\n                                    \u2193\n                              Object Storage (S3)\n```\n\n**Step 3: Deep Dive**\n- DB choice: SQL vs NoSQL\n- Caching strategy (write-through, cache-aside)\n- Horizontal vs vertical scaling\n- CDN for static assets\n\n**Key numbers to know:**\n- L1 cache: ~1ns | Memory: ~100ns\n- SSD: ~100\u03bcs | HDD: ~10ms | Network: ~100ms\n\n**Classic problems:** URL shortener, Twitter feed, Uber, YouTube"
+      ],
+      "context_set": "interview"
+    },
+    {
+      "tag": "resume_tips",
+      "patterns": [
+        "resume tips",
+        "how to write resume",
+        "cv tips",
+        "tech resume",
+        "resume for developers",
+        "resume advice"
+      ],
+      "responses": [
+        "\ud83d\udcc4 **Developer Resume Tips:**\n\n**Format:**\n- 1 page (< 5 YOE), 2 pages (5+ YOE)\n- ATS-friendly: simple formatting, no tables\n- PDF format always\n\n**Structure:**\n1. Contact + GitHub/LinkedIn/Portfolio\n2. Summary (2-3 lines, optional for seniors)\n3. Skills (languages, frameworks, tools, cloud)\n4. Experience (reverse chronological)\n5. Projects (key differentiator!)\n6. Education\n\n**Writing impact bullets:**\n```\n\u274c 'Worked on backend API'\n\u2705 'Built REST API serving 50K RPM with <50ms p99 latency using FastAPI + Redis caching'\n\nFormula: Action Verb + What + Metric/Impact\n```\n\n**Projects section tips:**\n- Include tech stack prominently\n- Link to GitHub + live demo\n- 3-5 projects, pick your best\n- Show scale/impact where possible"
+      ],
+      "context_set": "career"
+    },
+    {
+      "tag": "career_advice",
+      "patterns": [
+        "career advice",
+        "how to become developer",
+        "software engineer career",
+        "career growth",
+        "how to get job",
+        "first developer job",
+        "entry level developer"
+      ],
+      "responses": [
+        "\ud83d\ude80 **Software Developer Career Guide:**\n\n**Breaking in (no experience):**\n1. **Learn fundamentals** \u2014 Python/JavaScript, DSA, CS basics\n2. **Build 3 solid projects** \u2014 real problems you solved\n3. **Open source contributions** \u2014 even small fixes matter\n4. **Network actively** \u2014 LinkedIn, Twitter/X, local meetups\n5. **Apply broadly** \u2014 100+ applications is normal\n\n**Career growth ladder:**\n```\nJunior (0-2yr) \u2192 Mid (2-5yr) \u2192 Senior (5-8yr) \u2192 Staff (8+yr)\n```\n\n**Growing as a developer:**\n- Read code more than you write\n- Learn the fundamentals deeply\n- Build, ship, get feedback\n- Write about what you learn\n- Find a mentor\n\n**Salary negotiation:** Always negotiate. State a range, not a single number. Silence after stating your number is normal \u2014 don't fill it!"
+      ],
+      "context_set": "career"
+    },
+    {
+      "tag": "productivity_tips",
+      "patterns": [
+        "productivity tips",
+        "how to be productive",
+        "developer productivity",
+        "focus tips",
+        "time management developer",
+        "deep work",
+        "pomodoro"
+      ],
+      "responses": [
+        "\u23f1\ufe0f **Developer Productivity Tips:**\n\n**Deep Work Framework:**\n- 90-minute focused blocks\n- Phone in another room during focus\n- No meetings before 11am (protect morning)\n- Pomodoro: 25min work \u2192 5min break \u2192 4 cycles \u2192 30min break\n\n**Tool stack:**\n- **Notes:** Obsidian (local, linked notes)\n- **Tasks:** Linear, Notion, or plain TODO.md\n- **Focus:** Freedom, Cold Turkey\n- **Time tracking:** Toggl\n\n**Coding efficiency:**\n```bash\n# Learn your editor shortcuts (VS Code)\nCtrl+P     \u2192 fuzzy file search\nCtrl+Shift+P \u2192 command palette\nAlt+Click  \u2192 multi-cursor\nCtrl+D     \u2192 select next occurrence\n\n# Use aliases\nalias gs='git status'\nalias gp='git push origin HEAD'\nalias dc='docker compose'\n```\n\n**The 2-minute rule:** If it takes less than 2 minutes, do it now."
+      ],
+      "context_set": "productivity"
+    },
+    {
+      "tag": "learning_resources",
+      "patterns": [
+        "how to learn programming",
+        "best resources to learn coding",
+        "programming resources",
+        "free coding resources",
+        "learn python free",
+        "coding websites"
+      ],
+      "responses": [
+        "\ud83d\udcda **Top Learning Resources:**\n\n**Python:**\n- Official docs (docs.python.org) \u2014 underrated\n- 'Fluent Python' by Luciano Ramalho\n- Real Python (realpython.com)\n\n**DSA:**\n- LeetCode (practice)\n- NeetCode.io (structured)\n- 'Introduction to Algorithms' (CLRS) \u2014 if you're serious\n\n**System Design:**\n- ByteByteGo newsletter\n- 'Designing Data-Intensive Applications' (Kleppmann)\n- system-design-primer on GitHub\n\n**Free platforms:**\n- freeCodeCamp\n- The Odin Project (web dev)\n- CS50 (Harvard, YouTube)\n- MIT OpenCourseWare\n\n**YouTube channels:**\n- Fireship \u2014 quick concepts\n- Theo (t3.gg) \u2014 web dev\n- NeetCode \u2014 DSA\n- TechWorld with Nana \u2014 DevOps"
+      ],
+      "context_set": "learning"
+    },
+    {
+      "tag": "apis",
+      "patterns": [
+        "what is an api",
+        "rest api",
+        "how apis work",
+        "api tutorial",
+        "http methods",
+        "json api",
+        "api design"
+      ],
+      "responses": [
+        "\ud83d\udd0c **APIs (Application Programming Interfaces):**\n\nAn API is a contract that lets applications talk to each other.\n\n**REST API \u2014 HTTP Methods:**\n```\nGET    /users          \u2192 List users\nGET    /users/123      \u2192 Get user 123\nPOST   /users          \u2192 Create user\nPUT    /users/123      \u2192 Replace user 123\nPATCH  /users/123      \u2192 Update fields\nDELETE /users/123      \u2192 Delete user\n```\n\n**Status Codes:**\n- 2xx: Success (200 OK, 201 Created, 204 No Content)\n- 3xx: Redirect (301 Moved, 304 Not Modified)\n- 4xx: Client error (400 Bad Request, 401 Unauthorized, 404 Not Found)\n- 5xx: Server error (500 Internal, 503 Service Unavailable)\n\n**REST vs GraphQL vs gRPC:**\n- REST: simple, widely understood, over-fetching issues\n- GraphQL: flexible, client specifies exactly what it needs\n- gRPC: fast binary protocol, great for microservices"
+      ],
+      "context_set": "apis"
+    },
+    {
+      "tag": "databases",
+      "patterns": [
+        "sql vs nosql",
+        "what is a database",
+        "database types",
+        "postgresql",
+        "mongodb",
+        "database design",
+        "normalization"
+      ],
+      "responses": [
+        "\ud83d\uddc4\ufe0f **SQL vs NoSQL:**\n\n**SQL (Relational):**\n- Structured, schema, ACID transactions\n- Best for: financial data, user accounts, complex queries\n- Examples: PostgreSQL, MySQL, SQLite\n\n**NoSQL types:**\n- **Document** (MongoDB): JSON-like, flexible schema\n- **Key-Value** (Redis): ultra-fast, caching, sessions\n- **Column** (Cassandra): write-heavy, time-series\n- **Graph** (Neo4j): relationships (social networks, recommendations)\n\n**When to use what:**\n```\nSQL: structured data, complex JOINs, transactions\nMongoDB: flexible schema, document storage\nRedis: caching, rate limiting, pub/sub\nCassandra: massive write throughput, IoT\n```\n\n**ACID vs BASE:**\n- ACID: Atomic, Consistent, Isolated, Durable (SQL)\n- BASE: Basically Available, Soft state, Eventually consistent (NoSQL)"
+      ],
+      "context_set": "databases"
+    },
+    {
+      "tag": "machine_learning",
+      "patterns": [
+        "what is machine learning",
+        "machine learning basics",
+        "supervised learning",
+        "neural network",
+        "deep learning",
+        "how does ml work"
+      ],
+      "responses": [
+        "\ud83e\udd16 **Machine Learning Basics:**\n\n**Types of ML:**\n- **Supervised** \u2014 labeled data, predict output (classification, regression)\n- **Unsupervised** \u2014 find patterns in unlabeled data (clustering, dimensionality reduction)\n- **Reinforcement** \u2014 agent learns via rewards (games, robotics)\n\n**ML Pipeline:**\n```\nData Collection \u2192 Preprocessing \u2192 Feature Engineering \n\u2192 Model Selection \u2192 Training \u2192 Evaluation \u2192 Deployment\n```\n\n**Quick Python ML:**\n```python\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import accuracy_score\n\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)\nmodel = RandomForestClassifier(n_estimators=100)\nmodel.fit(X_train, y_train)\npredictions = model.predict(X_test)\nprint(f'Accuracy: {accuracy_score(y_test, predictions):.2%}')\n```\n\n**Key algorithms to know:** Linear Regression, Decision Trees, SVM, K-Means, Neural Networks"
+      ],
+      "context_set": "ml"
+    },
+    {
+      "tag": "open_source",
+      "patterns": [
+        "how to contribute to open source",
+        "open source contribution",
+        "github contribution",
+        "first open source contribution",
+        "find open source projects"
+      ],
+      "responses": [
+        "\ud83c\udf0d **Contributing to Open Source:**\n\n**Start here:**\n1. Find issues labeled `good first issue` or `beginner-friendly`\n2. Read CONTRIBUTING.md thoroughly\n3. Fork \u2192 Clone \u2192 Create branch \u2192 Make change \u2192 PR\n\n**Finding projects:**\n- github.com/topics/good-first-issue\n- goodfirstissues.com\n- codetriage.com\n- up-for-grabs.net\n\n**PR workflow:**\n```bash\ngit fork <repo>\ngit clone <your-fork>\ngit checkout -b fix/typo-in-readme\n# make your changes\ngit add .\ngit commit -m 'fix: correct typo in README setup section'\ngit push origin fix/typo-in-readme\n# Open PR on GitHub\n```\n\n**What to contribute:**\n- Documentation fixes (easiest start)\n- Bug fixes (with tests!)\n- Feature implementations from issues\n- Performance improvements\n\nRemember: even fixing a typo is a valid contribution!"
+      ],
+      "context_set": "git"
+    },
+    {
+      "tag": "regex",
+      "patterns": [
+        "regex",
+        "regular expressions",
+        "how to use regex",
+        "regex python",
+        "pattern matching",
+        "regex tutorial"
+      ],
+      "responses": [
+        "\ud83d\udd24 **Regular Expressions in Python:**\n\n```python\nimport re\n\n# Common patterns\nemail = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'\nphone = r'\\b\\d{3}[-.]?\\d{3}[-.]?\\d{4}\\b'\nurl   = r'https?://(?:www\\.)?\\S+'\n\n# re methods\ntext = 'Contact: john@email.com or 555-123-4567'\n\n# Search \u2014 find first match\nmatch = re.search(email, text)\nif match: print(match.group())\n\n# FindAll \u2014 all matches\nemails = re.findall(email, text)\n\n# Sub \u2014 replace\nclean = re.sub(r'\\s+', ' ', text)  # normalize whitespace\n\n# Groups \u2014 capture subpatterns\npattern = r'(\\d{4})-(\\d{2})-(\\d{2})'\nm = re.match(pattern, '2024-01-15')\nprint(m.group(1), m.group(2), m.group(3))  # year, month, day\n```\n\n**Cheatsheet:** `\\d`=digit, `\\w`=word char, `\\s`=whitespace, `.`=any, `*`=0+, `+`=1+, `?`=0/1"
+      ],
+      "context_set": "python"
+    },
+    {
+      "tag": "testing",
+      "patterns": [
+        "unit testing",
+        "how to test python code",
+        "pytest",
+        "tdd",
+        "test driven development",
+        "python testing",
+        "write tests"
+      ],
+      "responses": [
+        "\ud83e\uddea **Testing in Python with pytest:**\n\n```python\n# calculator.py\ndef add(a: float, b: float) -> float:\n    return a + b\n\ndef divide(a: float, b: float) -> float:\n    if b == 0:\n        raise ValueError('Cannot divide by zero')\n    return a / b\n\n# test_calculator.py\nimport pytest\nfrom calculator import add, divide\n\nclass TestAdd:\n    def test_positive_numbers(self):\n        assert add(2, 3) == 5\n    \n    def test_negative_numbers(self):\n        assert add(-1, -1) == -2\n    \n    @pytest.mark.parametrize('a,b,expected', [\n        (1, 2, 3), (0, 0, 0), (-1, 1, 0)\n    ])\n    def test_parametrized(self, a, b, expected):\n        assert add(a, b) == expected\n\ndef test_divide_by_zero():\n    with pytest.raises(ValueError, match='divide by zero'):\n        divide(5, 0)\n```\n\n```bash\npytest -v                # verbose\npytest --cov=.           # with coverage\npytest -k 'test_add'     # filter tests\n```\n\n**TDD cycle:** Red \u2192 Green \u2192 Refactor"
+      ],
+      "context_set": "python"
+    },
+    {
+      "tag": "async_python",
+      "patterns": [
+        "async python",
+        "asyncio",
+        "async await",
+        "concurrency python",
+        "threads vs async",
+        "python concurrency"
+      ],
+      "responses": [
+        "\u26a1 **Async Python (asyncio):**\n\n```python\nimport asyncio\nimport aiohttp\n\n# Basic async function\nasync def fetch_data(url: str) -> dict:\n    async with aiohttp.ClientSession() as session:\n        async with session.get(url) as response:\n            return await response.json()\n\n# Run multiple requests concurrently\nasync def fetch_all(urls: list[str]) -> list:\n    tasks = [fetch_data(url) for url in urls]\n    return await asyncio.gather(*tasks)\n\n# Run\nurls = ['https://api.github.com/users/python', \n        'https://api.github.com/users/docker']\nresults = asyncio.run(fetch_all(urls))\n```\n\n**Threading vs Async vs Multiprocessing:**\n- **Threading**: I/O bound, shared memory, GIL limited\n- **Async**: I/O bound, single thread, high concurrency (best for web)\n- **Multiprocessing**: CPU bound, separate processes, bypasses GIL"
+      ],
+      "context_set": "python"
+    },
+    {
+      "tag": "kubernetes",
+      "patterns": [
+        "kubernetes",
+        "what is kubernetes",
+        "k8s tutorial",
+        "kubernetes pods",
+        "kubernetes deployment",
+        "container orchestration"
+      ],
+      "responses": [
+        "\u2693 **Kubernetes (K8s)** \u2014 container orchestration at scale:\n\n**Core concepts:**\n- **Pod** \u2014 smallest deployable unit (1+ containers)\n- **Deployment** \u2014 manages replica sets, rolling updates\n- **Service** \u2014 stable network endpoint for pods\n- **Ingress** \u2014 HTTP routing/load balancing\n- **ConfigMap/Secret** \u2014 configuration management\n- **PersistentVolume** \u2014 storage\n\n**Basic commands:**\n```bash\nkubectl get pods                # list pods\nkubectl get nodes               # list nodes\nkubectl apply -f deploy.yaml    # apply config\nkubectl scale deploy/app --replicas=3\nkubectl logs -f pod/app-xyz     # follow logs\nkubectl exec -it pod/app -- bash  # shell\n\n# Port forward for local access\nkubectl port-forward svc/myapp 8080:80\n```\n\n**Why K8s:** auto-scaling, self-healing, rolling deployments, service discovery, secret management"
+      ],
+      "context_set": "docker"
+    },
+    {
+      "tag": "data_science",
+      "patterns": [
+        "data science",
+        "pandas tutorial",
+        "numpy tutorial",
+        "data analysis python",
+        "matplotlib",
+        "data visualization",
+        "dataframe"
+      ],
+      "responses": [
+        "\ud83d\udcca **Data Science with Python:**\n\n```python\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Load data\ndf = pd.read_csv('data.csv')\nprint(df.head(), df.info(), df.describe())\n\n# Data cleaning\ndf.dropna()                        # remove NaN rows\ndf.fillna(df.mean())               # fill with mean\ndf.drop_duplicates(inplace=True)   # remove duplicates\ndf['col'] = df['col'].astype(int)  # type conversion\n\n# Analysis\ndf.groupby('category')['sales'].agg(['mean', 'sum', 'count'])\ndf[df['price'] > 100]  # filter\ndf.sort_values('revenue', ascending=False).head(10)\n\n# Visualization\nfig, axes = plt.subplots(1, 2, figsize=(12, 5))\ndf['category'].value_counts().plot(kind='bar', ax=axes[0])\ndf['price'].hist(ax=axes[1], bins=30)\nplt.tight_layout()\nplt.savefig('analysis.png', dpi=300)\n```\n\n**Workflow:** Load \u2192 Clean \u2192 Explore \u2192 Visualize \u2192 Model \u2192 Communicate"
+      ],
+      "context_set": "ml"
+    },
+    {
+      "tag": "linux_commands",
+      "patterns": [
+        "linux commands",
+        "terminal commands",
+        "bash commands",
+        "linux tutorial",
+        "command line",
+        "shell scripting"
+      ],
+      "responses": [
+        "\ud83d\udc27 **Essential Linux/Bash Commands:**\n\n```bash\n# Navigation\npwd        # current directory\nls -la     # list all with details\ncd ~/Projects\n\n# File operations\ncp src.py dest.py\nmv old.txt new.txt\nrm -rf ./temp  # careful!\nfind . -name '*.py' -size +1M  # find large Python files\n\n# Process management\nps aux | grep python  # find Python processes\nkill -9 <PID>         # force kill\nhtop                  # interactive process viewer\n\n# Text processing\ncat file.txt\ngrep -rn 'TODO' ./src  # recursive search\nawk '{print $1}' data.csv  # print first column\nsed 's/old/new/g' file.txt  # find & replace\n\n# Networking\ncurl -X GET 'https://api.example.com'\nwget https://example.com/file.zip\nnetstat -tulpn | grep :8080  # port check\n\n# Permissions\nchmod +x script.sh  # make executable\nchown user:group file\n```"
+      ],
+      "context_set": "linux"
+    },
+    {
+      "tag": "design_patterns",
+      "patterns": [
+        "design patterns",
+        "singleton pattern",
+        "factory pattern",
+        "observer pattern",
+        "software design patterns",
+        "patterns in python"
+      ],
+      "responses": [
+        "\ud83c\udfdb\ufe0f **Design Patterns in Python:**\n\n**Singleton \u2014 one instance only:**\n```python\nclass Singleton:\n    _instance = None\n    def __new__(cls):\n        if not cls._instance:\n            cls._instance = super().__new__(cls)\n        return cls._instance\n```\n\n**Factory \u2014 flexible object creation:**\n```python\nclass ShapeFactory:\n    @staticmethod\n    def create(shape: str):\n        shapes = {'circle': Circle, 'rect': Rectangle}\n        return shapes[shape]()\n```\n\n**Observer \u2014 event/notification system:**\n```python\nclass EventBus:\n    def __init__(self):\n        self._subscribers = defaultdict(list)\n    \n    def subscribe(self, event, callback):\n        self._subscribers[event].append(callback)\n    \n    def publish(self, event, data):\n        for callback in self._subscribers[event]:\n            callback(data)\n```\n\n**Other key patterns:** Decorator, Strategy, Command, Repository, Builder"
+      ],
+      "context_set": "python"
+    },
+    {
+      "tag": "ci_cd",
+      "patterns": [
+        "ci cd",
+        "continuous integration",
+        "continuous deployment",
+        "github actions",
+        "devops pipeline",
+        "automated deployment"
+      ],
+      "responses": [
+        "\ud83d\udd04 **CI/CD Pipeline:**\n\nCI/CD automates building, testing, and deploying code.\n\n**GitHub Actions example:**\n```yaml\n# .github/workflows/ci.yml\nname: CI Pipeline\non: [push, pull_request]\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      \n      - name: Set up Python\n        uses: actions/setup-python@v4\n        with:\n          python-version: '3.11'\n      \n      - name: Install dependencies\n        run: |\n          pip install -r requirements.txt\n          pip install pytest pytest-cov\n      \n      - name: Run tests\n        run: pytest --cov=. --cov-report=xml\n      \n      - name: Lint\n        run: |\n          pip install ruff\n          ruff check .\n```\n\n**CD flow:** Test passes \u2192 Build Docker image \u2192 Push to registry \u2192 Deploy to staging \u2192 Smoke tests \u2192 Deploy to production"
+      ],
+      "context_set": "docker"
+    },
+    {
+      "tag": "web_scraping",
+      "patterns": [
+        "web scraping",
+        "beautifulsoup",
+        "scrapy",
+        "requests python",
+        "how to scrape",
+        "selenium scraping"
+      ],
+      "responses": [
+        "\ud83d\udd77\ufe0f **Web Scraping with Python:**\n\n```python\nimport requests\nfrom bs4 import BeautifulSoup\nimport time\n\ndef scrape_page(url: str) -> dict:\n    headers = {'User-Agent': 'Mozilla/5.0'}\n    response = requests.get(url, headers=headers, timeout=10)\n    response.raise_for_status()\n    \n    soup = BeautifulSoup(response.text, 'html.parser')\n    \n    # Find elements\n    title = soup.find('h1').get_text(strip=True)\n    links = [a['href'] for a in soup.find_all('a', href=True)]\n    prices = soup.select('.price-tag')  # CSS selector\n    \n    return {'title': title, 'links': links}\n\n# Be respectful:\n# 1. Check robots.txt\n# 2. Add delays between requests\ntime.sleep(1)  # don't overwhelm servers\n# 3. Use caching\n# 4. Handle errors gracefully\n```\n\n**Tools:**\n- `requests` + `BeautifulSoup` \u2192 simple scraping\n- `Playwright`/`Selenium` \u2192 JavaScript-heavy sites\n- `Scrapy` \u2192 large-scale scraping framework"
+      ],
+      "context_set": "python"
+    },
+    {
+      "tag": "what_can_you_do",
+      "patterns": [
+        "what can you do",
+        "what are your capabilities",
+        "help me",
+        "what do you know",
+        "what topics do you cover",
+        "what can you help with"
+      ],
+      "responses": [
+        "\ud83d\ude80 Here's what I can help you with:\n\n**\ud83d\udcbb Programming**\n- Python (OOP, async, decorators, testing)\n- DSA (arrays, trees, DP, algorithms)\n- Regex, web scraping, APIs\n\n**\ud83d\udd27 DevOps & Cloud**\n- Git/GitHub workflows\n- Docker & Kubernetes\n- AWS, Azure, GCP\n- CI/CD pipelines\n\n**\ud83c\udfaf Career & Growth**\n- Interview prep (coding + system design)\n- Resume tips\n- Career guidance\n- Productivity hacks\n\n**\ud83e\udd16 Data & ML**\n- Data science (Pandas, NumPy)\n- Machine learning basics\n- Data visualization\n\nJust ask naturally \u2014 I understand context and follow-up questions! Try asking *'What is Python?'* followed by *'Who created it?'*"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "unknown",
+      "patterns": [],
+      "responses": [
+        "Hmm, I'm not quite sure I follow. Could you rephrase that? I'm great at Python, DSA, Git, Docker, cloud computing, debugging, interview prep, and career advice.",
+        "I didn't quite catch that. Try asking about Python, algorithms, system design, DevOps, or career topics \u2014 those are my specialties!",
+        "That's a bit outside my current knowledge. Could you be more specific? I'm best at tech topics like coding, algorithms, cloud, and developer career advice."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "recursion",
+      "patterns": [
+        "what is recursion",
+        "explain recursion",
+        "recursion in programming",
+        "when to use recursion",
+        "when to avoid recursion",
+        "recursion vs iteration",
+        "recursive function",
+        "base case recursion",
+        "recursion examples"
+      ],
+      "responses": [
+        "\ud83d\udd04 **Recursion** \u2014 a function that calls itself to solve smaller subproblems:\n\n```python\ndef factorial(n: int) -> int:\n    if n <= 1:       # Base case \u2014 MUST exist!\n        return 1\n    return n * factorial(n - 1)   # Recursive case\n\n# factorial(5) = 5 \u00d7 factorial(4) = 5 \u00d7 4 \u00d7 3 \u00d7 2 \u00d7 1 = 120\n```\n\n**Every recursive function needs:**\n1. **Base case** \u2014 stops the recursion\n2. **Recursive case** \u2014 moves toward the base case\n\n**When to avoid recursion:**\n- Very deep call stacks (Python default limit = 1000)\n- Performance-critical code (function call overhead)\n- When an iterative solution is equally readable\n\n**When recursion shines:** tree/graph traversal, divide-and-conquer (merge sort), backtracking, parsing nested structures.\n\n**Pro tip:** Use `@functools.lru_cache` to memoize recursive calls and avoid exponential time complexity."
+      ],
+      "context_set": "dsa"
+    },
+    {
+      "tag": "graphs",
+      "patterns": [
+        "graph data structure",
+        "what is a graph",
+        "graph algorithms",
+        "bfs dfs",
+        "breadth first search",
+        "depth first search",
+        "graph traversal",
+        "shortest path",
+        "dijkstra"
+      ],
+      "responses": [
+        "\ud83d\udd78\ufe0f **Graphs** \u2014 nodes connected by edges (directed or undirected):\n\n```python\nfrom collections import defaultdict, deque\n\n# Adjacency list representation\ngraph = defaultdict(list)\ngraph['A'].extend(['B', 'C'])\ngraph['B'].extend(['A', 'D'])\ngraph['C'].extend(['A', 'D'])\ngraph['D'].extend(['B', 'C'])\n\n# BFS \u2014 Level-by-level traversal, finds shortest path (unweighted)\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    visited.add(start)\n    order = []\n    while queue:\n        node = queue.popleft()\n        order.append(node)\n        for neighbor in graph[node]:\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    return order\n\n# DFS \u2014 Deep dive, uses stack (or recursion)\ndef dfs(graph, start, visited=None):\n    if visited is None: visited = set()\n    visited.add(start)\n    for neighbor in graph[start]:\n        if neighbor not in visited:\n            dfs(graph, neighbor, visited)\n    return visited\n```\n\n**BFS:** shortest path, level traversal | **DFS:** cycle detection, topological sort, connected components"
+      ],
+      "context_set": "dsa"
+    },
+    {
+      "tag": "python_lambdas",
+      "patterns": [
+        "python lambda",
+        "lambda function",
+        "anonymous function python",
+        "lambda vs def",
+        "lambda expressions",
+        "map filter lambda",
+        "what is a lambda in python",
+        "what is lambda",
+        "lambda in python explained",
+        "anonymous functions in python",
+        "lambda keyword python"
+      ],
+      "responses": [
+        "\u03bb **Python Lambdas** \u2014 anonymous single-expression functions:\n\n```python\n# Basic lambda\nsquare = lambda x: x ** 2\nprint(square(5))  # 25\n\n# Lambda with multiple args\nadd = lambda x, y: x + y\n\n# Practical uses:\nnums = [3, 1, 4, 1, 5, 9, 2, 6]\nnums.sort(key=lambda x: -x)  # sort descending\n\npeople = [{'name': 'Alice', 'age': 30}, {'name': 'Bob', 'age': 25}]\npeople.sort(key=lambda p: p['age'])  # sort by age\n\n# With map/filter\nsquares = list(map(lambda x: x**2, range(10)))\nevens   = list(filter(lambda x: x % 2 == 0, range(10)))\n\n# Pythonic alternatives (often preferred):\nsquares = [x**2 for x in range(10)]       # comprehension\nevens   = [x for x in range(10) if x%2==0]\n```\n\n**Rule:** Use lambdas for short, throwaway functions. Use `def` for anything reused or complex."
+      ],
+      "context_set": "python"
+    },
+    {
+      "tag": "virtual_environments",
+      "patterns": [
+        "virtual environment python",
+        "venv",
+        "how to create venv",
+        "python virtual environment",
+        "virtualenv",
+        "conda environment",
+        "pip install packages",
+        "requirements txt"
+      ],
+      "responses": [
+        "\ud83d\udce6 **Python Virtual Environments:**\n\nVirtual environments isolate project dependencies \u2014 no more 'works on my machine'!\n\n```bash\n# Create\npython -m venv .venv\n\n# Activate\nsource .venv/bin/activate        # Linux/Mac\n.venv\\Scripts\\activate           # Windows\n\n# Install packages\npip install fastapi uvicorn pandas\n\n# Save dependencies\npip freeze > requirements.txt\n\n# Reinstall from requirements\npip install -r requirements.txt\n\n# Deactivate\ndeactivate\n```\n\n**Modern alternatives:**\n```bash\n# uv \u2014 extremely fast package manager (2024 standard)\npip install uv\nuv venv && uv pip install fastapi\n\n# pyenv \u2014 manage multiple Python versions\npyenv install 3.12.0\npyenv local 3.12.0\n```\n\n**Best practice:** Always use a virtual environment. Commit `requirements.txt`, never commit `.venv/`"
+      ],
+      "context_set": "python"
+    },
+    {
+      "tag": "linux_networking",
+      "patterns": [
+        "networking basics",
+        "tcp ip",
+        "http https",
+        "dns explained",
+        "how internet works",
+        "ip address",
+        "ports and protocols",
+        "socket programming"
+      ],
+      "responses": [
+        "\ud83c\udf10 **Networking Fundamentals:**\n\n**OSI Model (simplified):**\n```\n7. Application  \u2014 HTTP, DNS, FTP\n6. Presentation \u2014 TLS/SSL, encoding\n5. Session      \u2014 connection management\n4. Transport    \u2014 TCP (reliable), UDP (fast)\n3. Network      \u2014 IP addressing, routing\n2. Data Link    \u2014 MAC addresses, Ethernet\n1. Physical     \u2014 cables, signals\n```\n\n**Key protocols:**\n- **TCP** \u2014 reliable, ordered, connection-based (web, email)\n- **UDP** \u2014 fast, no guarantee (video streaming, gaming, DNS)\n- **HTTP/2** \u2014 multiplexed requests, header compression\n- **HTTPS** \u2014 HTTP + TLS encryption\n\n**Python socket example:**\n```python\nimport socket\nclient = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\nclient.connect(('example.com', 80))\nclient.send(b'GET / HTTP/1.1\\r\\nHost: example.com\\r\\n\\r\\n')\nresponse = client.recv(4096)\nclient.close()\n```\n\n**Common ports:** 80 (HTTP), 443 (HTTPS), 22 (SSH), 5432 (PostgreSQL), 6379 (Redis)"
+      ],
+      "context_set": "linux"
+    },
+    {
+      "tag": "what_is_ai",
+      "patterns": [
+        "what is artificial intelligence",
+        "what is ai",
+        "explain ai",
+        "difference between ai ml dl",
+        "ai vs machine learning",
+        "types of ai"
+      ],
+      "responses": [
+        "\ud83e\udde0 **AI, ML, and Deep Learning \u2014 the hierarchy:**\n\n```\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502      Artificial Intelligence    \u2502  (Broad: any machine that mimics human intelligence)\n\u2502  \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510   \u2502\n\u2502  \u2502    Machine Learning     \u2502   \u2502  (Systems that learn from data)\n\u2502  \u2502  \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510  \u2502   \u2502\n\u2502  \u2502  \u2502  Deep Learning   \u2502  \u2502   \u2502  (Neural networks with many layers)\n\u2502  \u2502  \u2502  (Neural Nets)   \u2502  \u2502   \u2502\n\u2502  \u2502  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518  \u2502   \u2502\n\u2502  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518   \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n```\n\n**Types of AI:**\n- **Narrow AI** (ANI) \u2014 specialized tasks (Siri, recommendation engines) \u2190 *We're here*\n- **General AI** (AGI) \u2014 human-level reasoning \u2190 *Not yet achieved*\n- **Super AI** (ASI) \u2014 beyond human intelligence \u2190 *Theoretical*\n\n**Current hot areas:** LLMs (GPT, Claude), computer vision, robotics, autonomous vehicles, AI agents"
+      ],
+      "context_set": "ml"
+    }
+  ]
+}
