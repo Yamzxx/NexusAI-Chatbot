@@ -1,153 +1,209 @@
-# 🤖 NexusAI — Intelligent NLP Chatbot
+#  NexusAI Chatbot
 
 A chatbot built using Python and Streamlit.
 
-This project was created to learn how chatbots work using Natural Language Processing (NLP). It can understand different user questions, match them with suitable responses, and remember the conversation context for follow-up questions.
+This project was created to learn how chatbots work using Natural Language Processing (NLP). It can understand different user questions, match them with suitable responses, and remember conversation context for follow-up questions.
+
 ---
 
-## What it can do
+##  What It Can Do
 
-- Understand user queries using NLP
- 1.Match questions using TF-IDF and cosine similarity
- 2.Handle follow-up questions using conversation context
- 3.Detect sentiment using VADER
- 4.Correct small spelling mistakes
- 5.Answer questions from a knowledge base
- 6.Show confidence scores for responses
- 7.Provide fallback responses when it cannot understand a query
+* Understand user queries using NLP
+* Match questions using TF-IDF and cosine similarity
+* Handle follow-up questions using conversation context
+* Detect sentiment using VADER
+* Correct small spelling mistakes
+* Answer questions from a knowledge base
+* Show confidence scores for responses
+* Provide fallback responses when it cannot understand a query
 
-## Technologies Used
-- Python
-- Streamlit
-- NLTK
-- Scikit-Learn
-- NumPy
+---
 
+##  Technologies Used
 
-## How It Works
+* Python
+* Streamlit
+* NLTK
+* Scikit-Learn
+* NumPy
 
-- When a user sends a message:
+---
 
- 1.The text is cleaned and processed.
- 2.Spelling mistakes are checked.
- 3.Sentiment is detected.
- 4.The chatbot looks for the best matching intent.
- 5.If no strong match is found, it checks the FAQ knowledge base.
- 6.The response is returned and the conversation context is updated.
+##  How It Works
 
-### 55+ Intents across domains
-Greetings · Python (OOP, decorators, generators, async, lambdas, testing) · DSA (arrays, linked lists, trees, graphs, binary search, sorting, Big-O, DP, recursion) · Git/GitHub · Docker/Kubernetes · Cloud (AWS, Azure, GCP) · Debugging · APIs · Databases · ML basics · CI/CD · Web scraping · Linux · Design patterns · Interview prep · System design · Resume · Career advice · Productivity · Learning resources
+When a user sends a message:
 
+1. The text is cleaned and processed.
+2. Spelling mistakes are checked.
+3. Sentiment is detected.
+4. The chatbot looks for the best matching intent.
+5. If no strong match is found, it checks the FAQ knowledge base.
+6. The response is returned and the conversation context is updated.
 
+---
+
+##  Supported Topics
+
+The chatbot currently supports 55+ intents across different domains:
+
+* Greetings
+* Python (OOP, decorators, generators, async, lambdas, testing)
+* Data Structures & Algorithms
+* Git & GitHub
+* Docker & Kubernetes
+* Cloud Computing (AWS, Azure, GCP)
+* APIs
+* Databases
+* Machine Learning Basics
+* CI/CD
+* Linux
+* Web Scraping
+* Design Patterns
+* System Design
+* Interview Preparation
+* Resume Building
+* Career Guidance
+* Productivity Tips
+* Learning Resources
 
 ---
 
 ##  Running the Project
 
-### 1. Clone / download the project
+### 1. Clone the Repository
+
 ```bash
 git clone <your-repo-url>
 cd chatbot
 ```
 
-### 2. Create a virtual environment
+### 2. Create a Virtual Environment
+
 ```bash
 python -m venv .venv
-source .venv/bin/activate    # Linux/Mac
-.venv\Scripts\activate       # Windows
 ```
 
-### 3. Install dependencies
+Activate it:
+
+```bash
+# Windows
+.venv\Scripts\activate
+
+# Linux / Mac
+source .venv/bin/activate
+```
+
+### 3. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Run
+### 4. Run the Application
+
 ```bash
 streamlit run app.py
 ```
 
-Open **http://localhost:8501** in your browser.
+Open:
 
-> NLTK data (punkt, stopwords, wordnet, vader_lexicon) downloads automatically on first run.
+```text
+http://localhost:8501
+```
+
+in your browser.
+
+> NLTK resources (punkt, stopwords, wordnet, vader_lexicon) will be downloaded automatically during the first run.
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
-```
+```text
 chatbot/
-├── app.py                        # Streamlit entry point + full UI
+├── app.py
 ├── requirements.txt
 ├── README.md
 │
-├── chatbot_engine/               # NLP backend
+├── chatbot_engine/
 │   ├── __init__.py
-│   ├── preprocess.py             # NLP pipeline (normalize → tokenize → lemmatize)
-│   ├── intent_classifier.py      # TF-IDF vectorizer + cosine similarity
-│   ├── response_engine.py        # 5-level hybrid pipeline orchestrator
-│   ├── context_manager.py        # Conversation memory & pronoun resolution
-│   ├── sentiment.py              # VADER sentiment analysis
-│   └── spell_corrector.py        # Conservative edit-distance spell correction
+│   ├── preprocess.py
+│   ├── intent_classifier.py
+│   ├── response_engine.py
+│   ├── context_manager.py
+│   ├── sentiment.py
+│   └── spell_corrector.py
 │
 ├── data/
-│   ├── intents.json              # 55+ intents with patterns & responses
-│   └── faq_knowledge.json        # 8 detailed FAQ entries (Python internals, Git, etc.)
+│   ├── intents.json
+│   └── faq_knowledge.json
 │
-└── assets/                       # Static assets (logo, icons)
+└── assets/
 ```
 
 ---
 
+## 🏗️ Architecture
 
-##  Architecture
-
-```
+```text
 User Input
     │
     ▼
-Spell Correction ──→ (conservative, domain-aware)
+Text Processing
     │
     ▼
-Sentiment Analysis ──→ (VADER, adjusts response prefix)
+Spell Correction
     │
     ▼
-Context: is_followup? ──→ Pronoun Resolution ("it" → "Python")
+Sentiment Analysis
     │
     ▼
-TF-IDF Vectorizer ──→ Cosine Similarity
-    │
-    ├── conf ≥ 0.65 ──→ [L1] Intent Response
-    ├── conf ≥ 0.40 ──→ [L2] Similarity Response
-    ├── FAQ match   ──→ [L3] Knowledge Base Answer
-    ├── conf ≥ 0.25 ──→ [L4] Clarification Prompt
-    └── else        ──→ [L5] Graceful Fallback
+Context Handling
     │
     ▼
-Context Manager: update topic, intent, history
+TF-IDF + Similarity Matching
+    │
+    ├── Intent Match
+    ├── FAQ Match
+    ├── Clarification
+    └── Fallback
     │
     ▼
-EngineResponse → Streamlit UI
+Response Generation
+    │
+    ▼
+Streamlit UI
 ```
 
+---
 
+## 🔮 Future Improvements
 
-## Future Improvements
+* Voice input support
+* Database storage
+* More intents and responses
+* Better context tracking
+* Integration with external APIs
+* Support for additional NLP models
 
-Voice input support
-Database storage
-More intents and responses
-Better context tracking
-Integration with external APIs
+---
 
-## Why I Built This
+## 💡 Why I Built This
 
 I wanted to learn more about NLP and chatbot development beyond simple keyword-based bots. This project helped me understand text preprocessing, intent classification, similarity matching, sentiment analysis, and conversation management.
 
-## Thanks for checking out the project!
+---
 
-⭐ Feel free to star the repository and suggest any improvements.
+## ⭐ Support
+
+Thanks for checking out the project!
+
+If you found it useful, feel free to give the repository a star.
+
+Suggestions, improvements, and contributions are always welcome.
+
+---
 
 ## 📄 License
 
-MIT — free to use, modify, and distribute.
+This project is licensed under the MIT License.
